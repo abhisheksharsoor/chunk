@@ -2,7 +2,7 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY dist/*.whl /tmp/
+COPY *.whl /tmp/
 
 RUN WHEEL=$(ls -t /tmp/*.whl | head -n 1) && \
     echo "Installing: $WHEEL" && \
