@@ -4,7 +4,9 @@ WORKDIR /app
 
 COPY dist/*.whl /tmp/
 
-RUN pip install --no-cache-dir /tmp/*.whl \
-    && rm -f /tmp/*.whl
+RUN WHEEL=$(ls -t /tmp/*.whl | head -n 1) && \
+    echo "Installing: $WHEEL" && \
+    pip install --no-cache-dir "$WHEEL" && \
+    rm -f /tmp/*.whl
 
 CMD ["chunkhound", "--help"]
