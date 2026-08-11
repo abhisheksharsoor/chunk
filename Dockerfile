@@ -9,4 +9,4 @@ RUN WHEEL=$(ls -t /tmp/*.whl | head -n 1) && \
     pip install --no-cache-dir "$WHEEL" && \
     rm -f /tmp/*.whl
 
-CMD ["chunkhound", "--help"]
+CMD ["tail", "-f", "/dev/null"]
